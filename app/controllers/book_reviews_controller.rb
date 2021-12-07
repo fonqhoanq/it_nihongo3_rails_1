@@ -23,6 +23,7 @@ class BookReviewsController < ApplicationController
   def create
     @book_review = BookReview.new(book_review_params)
     @book_review.user_id = current_user.id
+
     respond_to do |format|
       if @book_review.save
         format.html { redirect_to @book_review, notice: "Book review was successfully created." }
@@ -64,6 +65,6 @@ class BookReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_review_params
-      params.require(:book_review).permit(:user_id)
+      params.require(:book_review).permit(:user_id, :book_id, :review)
     end
 end

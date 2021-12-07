@@ -1,3 +1,2 @@
 class BookReview < ApplicationRecord
-    
 end
